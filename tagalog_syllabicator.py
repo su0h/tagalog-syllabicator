@@ -17,7 +17,6 @@ def is_vowel(char):
         return True
     return False
 
-
 """
 Checks if a character is a consonant based on Tagalog language rules.
 
@@ -58,7 +57,6 @@ def is_consonant(char):
         return True
     return False
 
-
 """
 Converts all instances of the string "ng" into the single-character representation "^".
 
@@ -73,7 +71,6 @@ def preprocess_ng(word):
         return word
 
     return word.replace("ng", "^")
-
 
 """
 Converts all instances of the string "^" into "ng" in a list of string-based syllables.
@@ -95,7 +92,6 @@ def postprocess_ng(syllables):
 
     return new_syllables
 
-
 """
 Converts each vowel into the character 'V' and each consonants into the character 'C'. 
 Example: aanhin -> VVCCVC, ngayon -> CCVCVC
@@ -116,7 +112,6 @@ def get_pattern(word):
         else:
             pattern += letter
     return pattern
-
 
 """
 Extracts the syllables of a given Tagalog word. 
@@ -164,3 +159,13 @@ def get_syllables(word):
 
     # return resulting syllabication along with original word
     return postprocess_ng(result)
+
+if __name__ == "__main__":
+    input_word = ""
+    
+    while input_word != "-1":
+        input_word = input("Enter a word (enter -1 to end): ")
+        syllables = get_syllables(input_word)
+        print(f"The syllables of the word '{input_word}' are the following: ")
+        print(syllables)
+        print()
